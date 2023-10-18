@@ -53,20 +53,20 @@ services:
     command: "sh /script/run.sh"
     networks:
     - ssnet
-  mesin4:
-    container_name: mesin-4
-    image: gopherdata/gophernotes:latest-ds
-    user: root
-    ports:
-      - "60004:8888"
-      - "20004:20000"
-    environment:
-      - "DOCKER_STACKS_JUPYTER_CMD=lab"
-      - "GRANT_SUDO=yes"
-    volumes:
-      - ./workmesin4:/home/jovyan/work
-      - ./script:/script
-    command: "sh /script/run-go.sh"
-    networks:
-    - ssnet
+#  mesin4:
+#    container_name: mesin-4
+#    image: gopherdata/gophernotes:latest-ds
+#    user: root
+#    ports:
+#      - "60004:8888"
+#      - "20004:20000"
+#    environment:
+#      - "DOCKER_STACKS_JUPYTER_CMD=lab"
+#      - "GRANT_SUDO=yes"
+#    volumes:
+#      - ./workmesin4:/home/jovyan/work
+#      - ./script:/script
+#    command: "sh /script/run-go.sh"
+#    networks:
+#    - ssnet
 
