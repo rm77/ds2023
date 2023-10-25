@@ -47,6 +47,8 @@ RUN set -x \
     && cd - \
     ## clean
     && find /usr/lib/python3.9 -name __pycache__ | xargs rm -r \
+    && pip3 install --upgrade pip \
+    && apk add --no-cache vim \
     && rm -rf \
         /root/.[acpw]* \
         ipaexg00301* \
