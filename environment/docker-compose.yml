@@ -13,14 +13,14 @@ services:
       - "60001:8888"
       - "20001:20000"
     environment:
-      - "TOKEN=mesin1"
+      - "PASSWORD=mesin1"
       - "DOCKER_STACKS_JUPYTER_CMD=lab"
       - "GRANT_SUDO=yes"
     volumes:
       - ./workmesin1:/home/jovyan/work
       - ./script:/script
-    entrypoint: "sh /script/run-go.sh"
-    #command: "sh /script/run-go.sh"
+    entrypoint: "sh /script/entrypoint.sh"
+    #command: "sh /script/entrypoint.sh"
     #entrypoint: "/bin/sh -c 'while true;do sleep 10000;done'"
     networks:
     - ssnet
@@ -32,13 +32,13 @@ services:
       - "60002:8888"
       - "20002:20000"
     environment:
-      - "TOKEN=mesin2"
+      - "PASSWORD=mesin2"
       - "DOCKER_STACKS_JUPYTER_CMD=lab"
       - "GRANT_SUDO=yes"
     volumes:
       - ./workmesin2:/home/jovyan/work
       - ./script:/script
-    entrypoint: "sh /script/run-go.sh"
+    entrypoint: "sh /script/entrypoint.sh"
     networks:
     - ssnet
   mesin3:
@@ -49,13 +49,13 @@ services:
       - "60003:8888"
       - "20003:20000"
     environment:
-      - "TOKEN=mesin3"
+      - "PASSWORD=mesin3"
       - "DOCKER_STACKS_JUPYTER_CMD=lab"
       - "GRANT_SUDO=yes"
     volumes:
       - ./workmesin3:/home/jovyan/work
       - ./script:/script
-    entrypoint: "sh /script/run-go.sh"
+    entrypoint: "sh /script/entrypoint.sh"
     networks:
     - ssnet
 
