@@ -1,0 +1,17 @@
+FROM jupyter/scipy-notebook
+WORKDIR /home/jovyan
+USER root
+
+#RUN mkdir -p /lgokernel && mkdir -p /go
+#COPY --from=IGO /go/ /go/
+#COPY --from=IGO /lgo/ /lgo/
+#COPY --from=IGO /home/gopher/.local/share/jupyter/kernels/lgo/ /lgokernel/
+# To use JupyterLab, replace "notebook" with "lab".
+#CMD ["jupyter", "lab", "--ip=0.0.0.0"]
+#ENV LGOPATH /lgo
+#RUN cd /lgokernel/ && jupyter kernelspec install $(pwd)
+ENV GOPATH /go
+
+
+
+CMD ["/bin/sh","-c","while true;do sleep 10000;done"]

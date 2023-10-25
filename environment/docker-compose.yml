@@ -7,7 +7,9 @@ networks:
 services:
   mesin1:
     container_name: mesin-1
-    image: jupyter/scipy-notebook
+    build:
+      context: ./jkernel
+      dockerfile: Dockerfile
     user: root
     ports:
       - "60001:8888"
@@ -18,12 +20,16 @@ services:
     volumes:
       - ./workmesin1:/home/jovyan/work
       - ./script:/script
-    command: "sh /script/run.sh"
+    entrypoint: "sh /script/run-go.sh"
+    #command: "sh /script/run-go.sh"
+    #entrypoint: "/bin/sh -c 'while true;do sleep 10000;done'"
     networks:
     - ssnet
   mesin2:
     container_name: mesin-2
-    image: jupyter/scipy-notebook
+    build:
+      context: ./jkernel
+      dockerfile: Dockerfile
     user: root
     ports:
       - "60002:8888"
@@ -34,12 +40,14 @@ services:
     volumes:
       - ./workmesin2:/home/jovyan/work
       - ./script:/script
-    command: "sh /script/run.sh"
+    entrypoint: "sh /script/run-go.sh"
     networks:
     - ssnet
   mesin3:
     container_name: mesin-3
-    image: jupyter/scipy-notebook
+    build:
+      context: ./jkernel
+      dockerfile: Dockerfile
     user: root
     ports:
       - "60003:8888"
@@ -50,23 +58,8 @@ services:
     volumes:
       - ./workmesin3:/home/jovyan/work
       - ./script:/script
-    command: "sh /script/run.sh"
+    entrypoint: "sh /script/run-go.sh"
     networks:
     - ssnet
-#  mesin4:
-#    container_name: mesin-4
-#    image: gopherdata/gophernotes:latest-ds
-#    user: root
-#    ports:
-#      - "60004:8888"
-#      - "20004:20000"
-#    environment:
-#      - "DOCKER_STACKS_JUPYTER_CMD=lab"
-#      - "GRANT_SUDO=yes"
-#    volumes:
-#      - ./workmesin4:/home/jovyan/work
-#      - ./script:/script
-#    command: "sh /script/run-go.sh"
-#    networks:
-#    - ssnet
+
 
