@@ -21,7 +21,7 @@ services:
       - ./script:/script
     entrypoint: "sh /script/entrypoint.sh"
     #command: "sh /script/entrypoint.sh"
-    #entrypoint: "/bin/sh -c 'while true;do sleep 10000;done'"
+    #entrypoint: "/bin/sh -c 'while true;do sleep 8888;done'"
     networks:
     - ssnet
   mesin2:
